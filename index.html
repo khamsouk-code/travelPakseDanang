@@ -17,7 +17,6 @@ body {
   overflow: hidden;
 }
 
-/* book */
 .book {
   width: 90vw;
   height: 90vh;
@@ -25,29 +24,27 @@ body {
   position: relative;
 }
 
-/* page */
 .page {
   width: 100%;
   height: 100%;
   position: absolute;
   background: white;
-  border-radius: 12px;
+  border-radius: 15px;
   padding: 20px;
   box-sizing: border-box;
-  backface-visibility: hidden;
   transform-origin: left;
   transition: transform 0.8s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  backface-visibility: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
   overflow-y: auto;
+  border-left: 5px solid #eee;
 }
 
-/* flipped */
 .page.flipped {
   transform: rotateY(-180deg);
 }
 
-/* text style */
-h1, h2 {
+h1,h2 {
   color: #333;
 }
 
@@ -77,11 +74,13 @@ img {
   <div class="page">
     <h2>ມື້ 2</h2>
     <p>Ba Na Hills</p>
+    <img src="https://images.unsplash.com/photo-1528127269322-539801943592">
   </div>
 
   <div class="page">
     <h2>ມື້ 3</h2>
     <p>Hoi An</p>
+    <img src="https://images.unsplash.com/photo-1549880181-56a44cf4a9a5">
   </div>
 
 </div>
@@ -92,6 +91,11 @@ img {
 let pages = document.querySelectorAll(".page");
 let current = 0;
 let startX = 0;
+
+// 🔥 แก้ปัญหาหน้าซ้อน
+pages.forEach((page, i) => {
+  page.style.zIndex = pages.length - i;
+});
 
 // swipe
 document.addEventListener("touchstart", e => {
@@ -105,7 +109,6 @@ document.addEventListener("touchend", e => {
   if (endX - startX > 50) flipPrev();
 });
 
-// flip next
 function flipNext() {
   if (current >= pages.length) return;
   pages[current].classList.add("flipped");
@@ -113,7 +116,6 @@ function flipNext() {
   current++;
 }
 
-// flip prev
 function flipPrev() {
   if (current <= 0) return;
   current--;
@@ -121,7 +123,6 @@ function flipPrev() {
   playSound();
 }
 
-// sound
 function playSound() {
   let audio = document.getElementById("flipSound");
   audio.currentTime = 0;
