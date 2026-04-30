@@ -4,115 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Day Trip - Khamsouk Travel</title>
-
     <style>
-        /* ล้างค่าเริ่มต้น */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Phetsarath OT', sans-serif; /* รองรับฟอนต์ลาว */
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        
         body {
-            /* ตรวจสอบว่าไฟล์ bg1day.png อยู่ในโฟลเดอร์เดียวกับไฟล์นี้ */
-            background: url('bg1day.png') no-repeat center center fixed;
+            /* แก้ไขตรงนี้เพื่อใช้พื้นหลังบน GitHub */
+            background: #2c3e50 url('./bg1day.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             color: white;
-            line-height: 1.6;
         }
 
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-        }
+        .header { text-align: center; padding: 30px; }
+        .header h1 { background: rgba(0,0,0,0.7); display: inline-block; padding: 15px 25px; border-radius: 15px; }
 
-        .header h1 {
-            font-size: 36px;
-            background: rgba(0, 0, 0, 0.6);
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .timeline { width: 90%; max-width: 600px; margin: auto; }
+        .item { background: rgba(0,0,0,0.7); margin-bottom: 20px; padding: 20px; border-radius: 15px; }
+        .item h2 { color: #ffd27a; margin-bottom: 10px; }
+        .item img { width: 100%; border-radius: 10px; margin-top: 10px; display: block; }
 
-        .timeline {
-            width: 95%;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .item {
-            background: rgba(0, 0, 0, 0.7); /* เพิ่มความเข้มให้อ่านง่ายขึ้น */
-            margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .item:hover {
-            transform: translateY(-5px);
-        }
-
-        .item h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #ffd27a;
-            border-bottom: 2px solid #ff7a00;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .item p {
-            font-size: 17px;
-            margin-bottom: 15px;
-        }
-
-        .item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-
-        .btn-area {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: #ff7a00;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4);
-        }
-
-        .btn:hover {
-            background: #ff9533;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 122, 0, 0.6);
-        }
-
-        /* ปรับแต่งสำหรับมือถือ */
-        @media (max-width: 480px) {
-            .header h1 { font-size: 28px; }
-            .item h2 { font-size: 18px; }
-            .item p { font-size: 15px; }
-        }
+        .btn-area { text-align: center; padding: 40px; }
+        .btn { background: #ff7a00; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; }
     </style>
 </head>
-
 <body>
 
     <div class="header">
@@ -120,35 +34,29 @@
     </div>
 
     <div class="timeline">
-
-        <!-- ช่วงเช้า -->
         <div class="item">
             <h2>04:00 ໂມງ</h2>
-            <p>ອອກເດີນທາງຈາກປາກເຊໄປດານິງ (ໃຫ້ທຸກຄົນກະກຽມອາຫານເຊົ້າຂອງໂຕເອງ)</p>
-            <img src="one1day.png" alt="Travel from Pakse">
+            <p>ອອກເດີນທາງຈາກປາກເຊໄປດານິງ</p>
+            <img src="./one1day.png">
         </div>
 
-        <!-- ช่วงเที่ยง -->
         <div class="item">
             <h2>12:00 ໂມງ</h2>
-            <p>ຮອດຊາຍແດນ ກິນເຂົ້າຮ່ວມສามັກຄີຢູ່ດ່ານ</p>
-            <img src="two1day.png" alt="Border arrival">
+            <p>ຮອດຊາຍແດນ ກິນເຂົ້າຮ່ວມສາມັກຄີຢູ່ດ່ານ</p>
+            <img src="./two1day.png">
         </div>
 
-        <!-- ช่วงบ่าย -->
         <div class="item">
             <h2>16:00 ໂມງ</h2>
             <p>ຮອດດານິງ ກຽມເຄື່ອງອາບນໍ້າ</p>
-            <img src="three1day.png" alt="Arrive Da Nang">
+            <img src="./three1day.png">
         </div>
 
-        <!-- ช่วงเย็น -->
         <div class="item">
             <h2>19:00 ໂມງ</h2>
-            <p>ຮັບປະທานອາຫານຮ່ວມກັນ ຈົບທຣິບມື້ນີ້</p>
-            <img src="four1day.png" alt="Dinner time">
+            <p>ຮັບປະທานອາຫານຮ່ວມກັນ</p>
+            <img src="./four1day.png">
         </div>
-
     </div>
 
     <div class="btn-area">
