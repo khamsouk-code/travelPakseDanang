@@ -1,134 +1,97 @@
 <!DOCTYPE html>
 <html lang="lo">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ທ່ຽວຫວຽດນາມ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamsouk Trip</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
 
-.book {
-  width: 90vw;
-  height: 90vh;
-  perspective: 2000px;
-  position: relative;
-}
+        body, html {
+            height: 100%;
+        }
 
-.page {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  box-sizing: border-box;
-  transform-origin: left;
-  transition: transform 0.8s ease;
-  backface-visibility: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-  overflow-y: auto;
-  border-left: 5px solid #eee;
-}
+        .hero {
+            height: 100vh;
+            background: url('1day.jpg') no-repeat center center/cover;
+            position: relative;
+        }
 
-.page.flipped {
-  transform: rotateY(-180deg);
-}
+        .overlay {
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
 
-h1,h2 {
-  color: #333;
-}
+        .content {
+            background: rgba(0,0,0,0.4);
+            padding: 30px;
+            border-radius: 20px;
+        }
 
-img {
-  width: 100%;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-</style>
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            width: 80%;
+            max-width: 300px;
+
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+
+            background: #ff7a00;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #ff5500;
+        }
+
+        .btn:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        /* ทำให้สวยขึ้นบนมือถือ */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="book" id="book">
+    <div class="hero">
+        <div class="overlay">
+            <div class="content">
+                <h1>Khamsouk Trip Laos-Vietnam</h1>
+            </div>
 
-  <div class="page">
-    <h1>ທ່ຽວຫວຽດນາມ</h1>
-    <p>5 ວັນ 4 ຄືນ</p>
-  </div>
-
-  <div class="page">
-    <h2>ມື້ 1</h2>
-    <p>ເດີນທາງ</p>
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-  </div>
-
-  <div class="page">
-    <h2>ມື້ 2</h2>
-    <p>Ba Na Hills</p>
-    <img src="https://images.unsplash.com/photo-1528127269322-539801943592">
-  </div>
-
-  <div class="page">
-    <h2>ມື້ 3</h2>
-    <p>Hoi An</p>
-    <img src="https://images.unsplash.com/photo-1549880181-56a44cf4a9a5">
-  </div>
-
-</div>
-
-<audio id="flipSound" src="https://www.soundjay.com/page-flip-01a.mp3"></audio>
-
-<script>
-let pages = document.querySelectorAll(".page");
-let current = 0;
-let startX = 0;
-
-// 🔥 แก้ปัญหาหน้าซ้อน
-pages.forEach((page, i) => {
-  page.style.zIndex = pages.length - i;
-});
-
-// swipe
-document.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
-document.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-
-  if (startX - endX > 50) flipNext();
-  if (endX - startX > 50) flipPrev();
-});
-
-function flipNext() {
-  if (current >= pages.length) return;
-  pages[current].classList.add("flipped");
-  playSound();
-  current++;
-}
-
-function flipPrev() {
-  if (current <= 0) return;
-  current--;
-  pages[current].classList.remove("flipped");
-  playSound();
-}
-
-function playSound() {
-  let audio = document.getElementById("flipSound");
-  audio.currentTime = 0;
-  audio.play();
-}
-</script>
+            <a href="day1.html" class="btn">ກົດເບີ່ງມື້ແລກ</a>
+        </div>
+    </div>
 
 </body>
 </html>
