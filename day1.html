@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Day Trip</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background: url('bg1day.png') no-repeat center center/cover;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            background: rgba(0,0,0,0.5);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        .timeline {
+            width: 90%;
+            max-width: 700px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .item {
+            background: rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .item h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #ffd27a;
+        }
+
+        .item p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .item img {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .btn-area {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            background: #ff7a00;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #ff5500;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- หัวข้อ -->
+    <div class="header">
+        <h1>ONE DAY TRIP</h1>
+    </div>
+
+    <!-- รายละเอียดทริป -->
+    <div class="timeline">
+
+        <div class="item">
+            <h2>04:00 ໂມງ</h2>
+            <p>ອອກເດີນທາງຈາກປາກເຊໄປດານິງ (ໃຫ້ທຸກຄົນກະກຽມອາຫານເຊົ້າຂອງໂຕເອງ)</p>
+            <img src="one1day.png">
+        </div>
+
+        <div class="item">
+            <h2>12:00 ໂມງ</h2>
+            <p>ຮອດຊາຍແດນ ກິນເຂົ້າຮ່ວມສາມັກຄີຢູ່ດ່ານ</p>
+            <img src="two1day.png">
+        </div>
+
+        <div class="item">
+            <h2>16:00 ໂມງ</h2>
+            <p>ຮອດດານິງ ກຽມເຄື່ອງອາບນໍ້າ</p>
+            <img src="three1day.png">
+        </div>
+
+        <div class="item">
+            <h2>19:00 ໂມງ</h2>
+            <p>ຮັບປະທານອາຫານຮ່ວມກັນ ສຸດຊື່ນກັບທຣິບມື້ນີ້</p>
+            <img src="four1day.png">
+        </div>
+
+    </div>
+
+    <!-- ปุ่มไปวันถัดไป -->
+    <div class="btn-area">
+        <a href="day2.html" class="btn">ກົດເບີ່ງມື້ທີ່ສອງ</a>
+    </div>
+
+</body>
+</html>
