@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ທ່ຽວຫວຽດນາມ 5 ວັນ 4 ຄືນ</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  width: 500%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.cover {
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+button {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  font-size: 18px;
+}
+.left { left: 10px; }
+.right { right: 10px; }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="slider">
+
+  <div class="page cover">
+    <div>
+      <h1>ທ່ຽວຫວຽດນາມ</h1>
+      <p>5 ວັນ 4 ຄືນ ງົບ 6,000,000 ກີບ</p>
+    </div>
+  </div>
+
+  <div class="page">
+    <h2>ມື້ 1 - ເດີນທາງ</h2>
+    <p>04:00 ອອກເດີນທາງຈາກປາກເຊ</p>
+    <p>12:00 ຮອດດ່ານຊາຍແດນ ກິນເຂົ້າ (ຈ່າຍເອງ)</p>
+    <p>17:00 ຮອດດານັງ ເຊັກອິນ</p>
+    <p>ເຫດຜົນ: ອອກໄວເພື່ອປະຫຍັດເວລາທ່ຽວ</p>
+    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc">
+  </div>
+
+  <div class="page">
+    <h2>ມື້ 2 - Ba Na Hills</h2>
+    <p>ເຊົ້າ: ກິນອາຫານໂຮງແຮມ</p>
+    <p>ທ່ຽວ Ba Na Hills ທັງມື້</p>
+    <p>ທ່ຽງ: ກິນເອງ</p>
+    <p>ແລງ: ກິນຮ່ວມ (ກອງກາງ)</p>
+  </div>
+
+  <div class="page">
+    <h2>ມື້ 3 - Hoi An</h2>
+    <p>ເຊົ້າ: ກິນອາຫານໂຮງແຮມ</p>
+    <p>ທ່ຽວຄາເຟ + ຕະຫຼາດ</p>
+    <p>ບ່າຍ: ໄປຮອຍອານ</p>
+    <p>ພັກທີ່ຮອຍອານ</p>
+  </div>
+
+  <div class="page">
+    <h2>ມື້ 4</h2>
+    <p>👉 ແນະນຳ: ທະເລ An Bang</p>
+    <p>ຫຼື ໄປ Hue (ສາຍວັດທະນະທຳ)</p>
+  </div>
+
+</div>
+
+<button class="left" onclick="slide(-1)">◀</button>
+<button class="right" onclick="slide(1)">▶</button>
+
+<script>
+let index = 0;
+let startX = 0;
+let isDown = false;
+
+// Touch
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  handleSwipe(endX);
+});
+
+// Mouse
+document.addEventListener("mousedown", e => {
+  isDown = true;
+  startX = e.clientX;
+});
+
+document.addEventListener("mouseup", e => {
+  if (!isDown) return;
+  isDown = false;
+  let endX = e.clientX;
+  handleSwipe(endX);
+});
+
+function handleSwipe(endX) {
+  if (startX - endX > 50) index++;
+  if (endX - startX > 50) index--;
+
+  if (index < 0) index = 0;
+  if (index > 4) index = 4;
+
+  document.getElementById("slider").style.transform =
+    "translateX(-" + (index * 100) + "vw)";
+}
+
+function slide(step) {
+  index += step;
+
+  if (index < 0) index = 0;
+  if (index > 4) index = 4;
+
+  document.getElementById("slider").style.transform =
+    "translateX(-" + (index * 100) + "vw)";
+}
+</script>
+
+</body>
+</html>
